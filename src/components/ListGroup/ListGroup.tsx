@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+import * as React from 'react';
 
 interface Props {
   heading: string;
@@ -6,6 +7,8 @@ interface Props {
 }
 const ListGroup = ({ heading, items }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  console.log('From list-group component');
+
   //const array = ['New York', 'Sans fransico', 'California', 'London', 'Tokyo'];
   return (
     <>
@@ -25,7 +28,7 @@ const ListGroup = ({ heading, items }: Props) => {
   );
 };
 
-export default ListGroup;
+export default React.memo(ListGroup);
 // Under the hood - with help of babel - JS compiler converts the JSX to react elements
 // import React from 'react';
 
